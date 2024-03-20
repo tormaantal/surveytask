@@ -4,7 +4,6 @@ import com.survey.models.Participation;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 @Repository
 public class ParticipationDaoImpl implements ParticipationDao{
     private final List<Participation> participationList;
@@ -15,12 +14,8 @@ public class ParticipationDaoImpl implements ParticipationDao{
     }
 
     @Override
-    public Optional<Participation> fetchById(int id) {
-        return Optional.empty();
-    }
-
-    @Override
     public List<Participation> fetchAll() {
         return participationList;
     }
+
 }

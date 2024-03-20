@@ -14,7 +14,7 @@ public class StatusImportImpl implements InterfaceImport<Status> {
         String line;
         List<Status> statusList = new ArrayList<>();
         try {
-            sc = new Scanner(new File("src/data/Statuses.csv"));
+            sc = new Scanner(new File("src/main/resources/static/Statuses.csv"));
             sc.nextLine();
             while (sc.hasNext()) {
                 if (!(line = sc.nextLine()).isEmpty()){

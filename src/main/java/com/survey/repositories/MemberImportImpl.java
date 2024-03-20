@@ -14,7 +14,7 @@ public class MemberImportImpl implements InterfaceImport<Member> {
         String line;
         List<Member> membersList = new ArrayList<>();
         try {
-            sc = new Scanner(new File("src/data/Members.csv"));
+            sc = new Scanner(new File("src/main/resources/static/Members.csv"));
             sc.nextLine();
             while (sc.hasNext()) {
                 if (!(line = sc.nextLine()).isEmpty()){

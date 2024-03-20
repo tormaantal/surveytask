@@ -7,16 +7,6 @@ public class Member {
     private String emailAddress;
     private int isActive;
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", isActive=" + isActive +
-                '}';
-    }
-
     public Member(){
 
     }

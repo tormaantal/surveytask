@@ -1,9 +1,11 @@
 package com.survey.services;
 
+import com.survey.models.Participation;
+import com.survey.models.Survey;
+import com.survey.models.SurveyDto;
 import com.survey.repositories.ParticipationDao;
 import com.survey.repositories.StatusDao;
 import com.survey.repositories.SurveyDao;
-import com.survey.models.Survey;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -32,8 +34,22 @@ public class SurveyServicesImpl implements SurveyServices {
     }
 
     @Override
-    public List<Survey> fetchSurveysWithStats() {
-        return null;
+    public List<SurveyDto> fetchSurveysWithStats() {
+        List<SurveyDto> resultList = new ArrayList<>();
+        surveyDao.fetchAll().forEach(survey -> {
+            int times = 0;
+            List<Participation> filteredList = participationDao.fetchAll().stream()
+                    .filter(participation -> participation.getSurveyId() == survey.getId())
+                    .filter(participation -> participation.getStatus() == statusDao.convertStatus("Completed"))
+                    .toList();
+            if (!filteredList.isEmpty()) {
+                for (Participation p :filteredList) {
+                    times += p.getLength();
+                }
+                resultList.add(SurveyDto.convert(survey,(double)times/filteredList.size()));
+            }
+        });
+        return resultList;
     }
 
     @Override

@@ -4,7 +4,7 @@ public class Participation {
     private int memberId;
     private int surveyId;
     private int status;
-    private Integer length;
+    private int length;
 
     @Override
     public String toString() {
@@ -20,7 +20,14 @@ public class Participation {
         this.memberId = memberId;
         this.surveyId = surveyId;
         this.status = status;
-        this.length = null;
+        this.length = 0;
+    }
+
+    public Participation(int memberId, int surveyId, int status, int length) {
+        this.memberId = memberId;
+        this.surveyId = surveyId;
+        this.status = status;
+        this.length = length;
     }
 
     public int getMemberId() {

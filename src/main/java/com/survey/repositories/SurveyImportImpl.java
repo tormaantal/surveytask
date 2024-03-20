@@ -14,7 +14,7 @@ public class SurveyImportImpl implements InterfaceImport<Survey> {
         String line;
         List<Survey> surveyList = new ArrayList<>();
         try {
-            sc = new Scanner(new File("src/data/Surveys.csv"));
+            sc = new Scanner(new File("src/main/resources/static/Surveys.csv"));
             sc.nextLine();
             while (sc.hasNext()) {
                 if (!(line = sc.nextLine()).isEmpty()){

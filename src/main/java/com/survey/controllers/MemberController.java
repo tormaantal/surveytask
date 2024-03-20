@@ -2,10 +2,7 @@ package com.survey.controllers;
 
 import com.survey.models.Member;
 import com.survey.services.MemberServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +31,7 @@ public class MemberController {
         return memberServices.fetchRespondentsBySurvey(surveyId);
     }
 
-    @GetMapping("/inviteables/{surveyId}")
+    @GetMapping("/canBeInvited/{surveyId}")
     public List<Member> fetchMembersToInvite(@PathVariable int surveyId){
         return memberServices.fetchMembersToInvite(surveyId);
     }

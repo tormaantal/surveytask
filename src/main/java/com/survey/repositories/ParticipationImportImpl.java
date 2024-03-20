@@ -12,15 +12,19 @@ public class ParticipationImportImpl implements InterfaceImport<Participation> {
         String line;
         List<Participation> participationList = new ArrayList<>();
         try {
-            sc = new Scanner(new File("src/data/Participation.csv"));
+            sc = new Scanner(new File("src/main/resources/static/Participation.csv"));
             sc.nextLine();
             while (sc.hasNext()) {
                 if (!(line = sc.nextLine()).isEmpty()){
                     String[] row = line.split(",");
-                    Participation p = new Participation(Integer.parseInt(row[0]),Integer.parseInt(row[1]),
-                            Integer.parseInt(row[2]));
-                    if (row.length == 4) p.setLength(Integer.parseInt(row[3]));
-                    participationList.add(p);
+                    if(row.length == 3 ){
+                        participationList.add(
+                                new Participation(Integer.parseInt(row[0]),Integer.parseInt(row[1]), Integer.parseInt(row[2])));
+                    }else {
+                        participationList.add(
+                                new Participation(Integer.parseInt(row[0]),Integer.parseInt(row[1]), Integer.parseInt(row[2]),
+                                        Integer.parseInt(row[3])));
+                    }
                 }
             }
             sc.close();

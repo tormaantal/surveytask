@@ -1,6 +1,7 @@
 package com.survey.controllers;
 
 import com.survey.models.Survey;
+import com.survey.models.SurveyDto;
 import com.survey.services.SurveyServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +22,8 @@ public class SurveyController {
     }
 
     @GetMapping("/")
-    public List<Survey> fetchAll(){
-        return surveyServices.fetchAll();
+    public List<SurveyDto> fetchSurveysWithStats(){
+        return surveyServices.fetchSurveysWithStats();
     }
 
     @GetMapping("/completedSurveys/{memberId}")

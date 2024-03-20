@@ -1,19 +1,18 @@
 package com.survey.services;
 
 import com.survey.models.Survey;
-import org.springframework.stereotype.Service;
+import com.survey.models.SurveyDto;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Service
 public interface SurveyServices {
     Optional<Survey> fetchById(int surveyId);
 
     List<Survey> fetchAll();
 
-    List<Survey> fetchSurveysWithStats();
+    List<SurveyDto> fetchSurveysWithStats();
 
     List<Survey> fetchSurveysCompletedByMemberId(int memberId);
 
