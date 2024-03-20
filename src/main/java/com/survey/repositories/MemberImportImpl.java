@@ -1,12 +1,13 @@
 package com.survey.repositories;
 
 import com.survey.models.Member;
-import org.springframework.stereotype.Component;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-@Component
 public class MemberImportImpl implements InterfaceImport<Member> {
 
     public List<Member> importData() {
